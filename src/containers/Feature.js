@@ -1,8 +1,8 @@
 export default class Feature {
-    constructor(name, allowed, required, charsAllowed) {
+    constructor(name, allowed, required, possibleCharacters) {
         this.name = name;
         this.allowed = allowed;
         this.required = required;
-        this.charsAllowed = charsAllowed;
+        this.possibleCharacters = possibleCharacters;
     }
 }
