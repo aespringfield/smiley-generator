@@ -1,5 +1,5 @@
 import Feature from './Feature';
-import CONFIG from './smileyConfig';
+import CONFIG from '../config/smileyConfig';
 
 export default class Smiley {
     constructor(features) {

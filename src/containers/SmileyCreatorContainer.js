@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import SmileyCreator from './SmileyCreator';
-import CONFIG from './smileyConfig';
+import SmileyCreator from '../models/SmileyCreator';
+import CONFIG from '../config/smileyConfig';
+import FeatureConfigDashboard from '../components/FeatureConfigDashboard';
 
 export default class SmileyCreatorContainer extends Component {
     constructor(props) {
@@ -26,6 +27,10 @@ export default class SmileyCreatorContainer extends Component {
     }
 
     render() {
-        return <div></div>
+        return (
+            <div>
+                <FeatureConfigDashboard />
+            </div>
+        );
     }
 }

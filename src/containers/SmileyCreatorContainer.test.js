@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SmileyCreatorContainer from './SmileyCreatorContainer';
 import { shallow } from 'enzyme';
-import CONFIG from './smileyConfig';
+import CONFIG from '../config/smileyConfig';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
