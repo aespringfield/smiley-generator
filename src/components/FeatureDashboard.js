@@ -3,7 +3,7 @@ import FeatureConfigOptions from './FeatureConfigOptions';
 
 const FeatureDashboard = props => (
     <div className="feature-dashboard">
-        Generate a smiley!
+        <h1>Generate a smiley!</h1>
         {console.log('feature dashboard props',props)}
         {props.features.map((feature, index) => 
             <FeatureConfigOptions key={index} feature={feature} />
