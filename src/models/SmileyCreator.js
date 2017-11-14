@@ -1,4 +1,4 @@
-import Feature from './Feature';
+// import Feature from './Feature';
 import CONFIG from '../config/smileyConfig';
 
 export default class Smiley {
@@ -34,7 +34,7 @@ export default class Smiley {
         this.keepAllowedFeatures();
         this.putFeaturesInOrder();
         return this.features.reduce((smiley, feature) => {
-            let charsAllowed = feature.possibleCharacters.filter(possibleCharacter => possibleCharacter.allowed)
+            let charsAllowed = feature.characterOptions.filter(characterOption => characterOption.allowed)
             let randomCharForFeature = charsAllowed[Math.floor(Math.random() * charsAllowed.length)].character;  
             return smiley += randomCharForFeature;
         }, '');

@@ -6,7 +6,7 @@ const CONFIG = {
             name: 'hair',
             allowed: true,
             required: true,
-            possibleCharacters: [
+            characterOptions: [
                 {
                     character: '~',
                     allowed: true
@@ -25,7 +25,7 @@ const CONFIG = {
             name: 'eyes',
             allowed: true,
             required: true,
-            possibleCharacters: [
+            characterOptions: [
                 {
                     character: ':',
                     allowed: true
@@ -44,7 +44,7 @@ const CONFIG = {
             name: 'nose',
             allowed: true,
             required: false,
-            possibleCharacters: [
+            characterOptions: [
                 {
                     character: '-',
                     allowed: true
@@ -63,7 +63,7 @@ const CONFIG = {
             name: 'mustache',
             allowed: false,
             required: false,
-            possibleCharacters: [
+            characterOptions: [
                 {
                     character: '{',
                     allowed: true
@@ -78,7 +78,7 @@ const CONFIG = {
             name: 'mouth',
             allowed: true,
             required: true,
-            possibleCharacters: [
+            characterOptions: [
                 {
                     character: ')',
                     allowed: true

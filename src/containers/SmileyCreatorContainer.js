@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import SmileyCreator from '../models/SmileyCreator';
 import CONFIG from '../config/smileyConfig';
-import FeatureConfigDashboard from '../components/FeatureConfigDashboard';
+import FeatureDashboardContainer from './FeatureDashboardContainer';
 
 export default class SmileyCreatorContainer extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            smileyCreator: new SmileyCreator(CONFIG.DEFAULT_FEATURES)
+        }
     }
 
-    componentDidMount() {
-        this.setState({
-            smileyCreator: new SmileyCreator(CONFIG.DEFAULT_FEATURES)
-        })
-    }
+    // componentDidMount() {
+    //     this.setState({
+    //         smileyCreator: new SmileyCreator(CONFIG.DEFAULT_FEATURES)
+    //     })
+    // }
 
     createSmiley() {
         this.setState({
@@ -29,7 +32,7 @@ export default class SmileyCreatorContainer extends Component {
     render() {
         return (
             <div>
-                <FeatureConfigDashboard />
+                <FeatureDashboardContainer features={this.state.smileyCreator.features}/>
             </div>
         );
     }

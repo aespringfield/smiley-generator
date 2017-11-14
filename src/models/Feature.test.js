@@ -18,7 +18,7 @@ describe('Feature class', () => {
             name: 'eyes',
             allowed: true,
             required: true,
-            possibleCharacters: [
+            characterOptions: [
                 {
                     character: ':', 
                     allowed: true
