@@ -6,7 +6,10 @@ export default class FeatureDashboardContainer extends Component {
         console.log('props.features', this.props.features);
         return (
             <div>
-                <FeatureDashboard features={this.props.features}/>
+                <FeatureDashboard 
+                    features={this.props.features}
+                    setFeatures={this.setFeatures}
+                />
             </div>
         );
     }
