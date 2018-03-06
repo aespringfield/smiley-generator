@@ -32,7 +32,10 @@ export default class SmileyCreatorContainer extends Component {
     render() {
         return (
             <div>
-                <FeatureDashboardContainer features={this.state.smileyCreator.features}/>
+                <FeatureDashboardContainer 
+                    features={this.state.smileyCreator.features}
+                    setFeatures={this.setFeatures}
+                />
             </div>
         );
     }
