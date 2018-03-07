@@ -1,12 +1,16 @@
 import React from 'react';
 import CharacterButton from './CharacterButton';
 
-const FeatureCharacterOptions = props => (
+const FeatureCharacters = props => (
     <div className="feature-character-options">
-        {props.characterOptions.map(({character, allowed}, index) =>
-            <CharacterButton key={index} character={character}/>
+        {props.characters.map((character, index) =>
+            <CharacterButton 
+                key={index} 
+                character={character}
+                toggleAllowed={props.toggleCharacterAllowed(index)}
+            />
         )}
     </div>
 );
 
-export default FeatureCharacterOptions;
+export default FeatureCharacters;

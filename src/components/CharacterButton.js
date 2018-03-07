@@ -1,9 +1,28 @@
 import React from 'react';
+import classNames from 'classnames';
 
-const CharacterButton = props => (
-    <button className="character-button">
-        {props.character}
-    </button>
-);
+const CharacterButton = props => {
+    const character = props.character;
+    const buttonClasses = classNames(
+        'character-button',
+        {'selected': character.allowed}
+    )
+    console.log(buttonClasses);
+
+    const handleClick = (event) => {
+        props.toggleAllowed();
+    }
+
+    return(
+        <div className="button-container">
+            <button 
+                className={buttonClasses}
+                onClick={(event) => handleClick(event)}
+            >
+                {character.name}
+            </button>
+        </div>
+    );
+};
 
 export default CharacterButton;

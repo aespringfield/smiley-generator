@@ -6,17 +6,17 @@ const CONFIG = {
             name: 'hair',
             allowed: true,
             required: true,
-            characterOptions: [
+            characters: [
                 {
-                    character: '~',
+                    name: '~',
                     allowed: true
                 },
                 {
-                    character: '<',
+                    name: '<',
                     allowed: true
                 },
                 {
-                    character: '{',
+                    name: '{',
                     allowed: true
                 }
             ]
@@ -25,17 +25,17 @@ const CONFIG = {
             name: 'eyes',
             allowed: true,
             required: true,
-            characterOptions: [
+            characters: [
                 {
-                    character: ':',
+                    name: ':',
                     allowed: true
                 },
                 {
-                    character: ';',
+                    name: ';',
                     allowed: true
                 },
                 {
-                    character: '8',
+                    name: '8',
                     allowed: true
                 }
             ]
@@ -44,17 +44,17 @@ const CONFIG = {
             name: 'nose',
             allowed: true,
             required: false,
-            characterOptions: [
+            characters: [
                 {
-                    character: '-',
+                    name: '-',
                     allowed: true
                 },
                 {
-                    character: '~',
+                    name: '~',
                     allowed: true
                 },
                 {
-                    character: '^',
+                    name: '^',
                     allowed: true
                 }
             ]
@@ -63,13 +63,13 @@ const CONFIG = {
             name: 'mustache',
             allowed: false,
             required: false,
-            characterOptions: [
+            characters: [
                 {
-                    character: '{',
+                    name: '{',
                     allowed: true
                 },
                 {
-                    character: '|',
+                    name: '|',
                     allowed: true
                 }
             ]
@@ -78,41 +78,41 @@ const CONFIG = {
             name: 'mouth',
             allowed: true,
             required: true,
-            characterOptions: [
+            characters: [
                 {
-                    character: ')',
+                    name: ')',
                     allowed: true
                 },
                 {
-                    character: 'D',
+                    name: 'D',
                     allowed: true
                 },
                 {
-                    character: '(',
+                    name: '(',
                     allowed: false
                 },
                 {
-                    character: 'o',
+                    name: 'o',
                     allowed: false
                 },
                 {
-                    character: 'P',
+                    name: 'P',
                     allowed: false
                 },
                 {
-                    character: '/',
+                    name: '/',
                     allowed: false
                 },
                 {
-                    character: '*',
+                    name: '*',
                     allowed: false
                 },
                 {
-                    character: '[',
+                    name: '[',
                     allowed: false
                 },
                 {
-                    character: ']',
+                    name: ']',
                     allowed: false
                 }
             ]

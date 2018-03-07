@@ -45,7 +45,7 @@ describe('SmileyCreator class', () => {
                     name: 'nose',
                     allowed: true,
                     required: false,
-                    characterOptions: [{
+                    characters: [{
                         character: '-',
                         allowed: true 
                     },
@@ -58,7 +58,7 @@ describe('SmileyCreator class', () => {
                     name: 'mouth',
                     allowed: true,
                     required: true,
-                    characterOptions: [{
+                    characters: [{
                         character: ')',
                         allowed: true 
                     },
@@ -71,7 +71,7 @@ describe('SmileyCreator class', () => {
                     name: 'eyes',
                     allowed: true,
                     required: true,
-                    characterOptions: [{
+                    characters: [{
                         character: ':',
                         allowed: true 
                     },
@@ -84,7 +84,7 @@ describe('SmileyCreator class', () => {
                     name: 'mustache',
                     allowed: true,
                     required: false,
-                    characterOptions: [{
+                    characters: [{
                         character: '{',
                         allowed: true
                     }]
@@ -99,7 +99,7 @@ describe('SmileyCreator class', () => {
                 name: 'eyes',
                 allowed: true,
                 required: true,
-                characterOptions: [{
+                characters: [{
                     character: ':',
                     allowed: true 
                 },
@@ -112,7 +112,7 @@ describe('SmileyCreator class', () => {
                 name: 'nose',
                 allowed: true,
                 required: false,
-                characterOptions: [{
+                characters: [{
                     character: '-',
                     allowed: true 
                 },
@@ -125,7 +125,7 @@ describe('SmileyCreator class', () => {
                 name: 'mustache',
                 allowed: true,
                 required: false,
-                characterOptions: [{
+                characters: [{
                     character: '{',
                     allowed: true
                 }]
@@ -134,7 +134,7 @@ describe('SmileyCreator class', () => {
                 name: 'mouth',
                 allowed: true,
                 required: true,
-                characterOptions: [{
+                characters: [{
                     character: ')',
                     allowed: true 
                 },
@@ -188,9 +188,9 @@ describe('SmileyCreator class', () => {
         }
 
         function generateFeatureRegEx(regExString, feature) {
-            regExString += '[' + feature.characterOptions.reduce((accumulator, characterOption) => {
-                if (characterOption.allowed) {
-                    let char = characterOption.character;
+            regExString += '[' + feature.characters.reduce((accumulator, character) => {
+                if (character.allowed) {
+                    let char = character.name;
                     let backslash = (/[\^\?\*\.\|\$\+\]\\\{\}]/.test(char) ? '\\' : '');
                     accumulator += accumulator + backslash + char;
                 }

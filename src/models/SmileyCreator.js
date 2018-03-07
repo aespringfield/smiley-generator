@@ -1,9 +1,9 @@
-// import Feature from './Feature';
+import Feature from './Feature';
 import CONFIG from '../config/smileyConfig';
 
-export default class Smiley {
+export default class SmileyCreator {
     constructor(features) {
-        this.features = features;
+        this.features = features.map(feature => new Feature(feature));
     }
 
     setFeatures(...features) {
@@ -22,6 +22,11 @@ export default class Smiley {
         this.features = this.features.filter(feature => feature.allowed);
     }
 
+    findFeatureIndex(featureName) {
+        const featureIndex = this.features.find(feature => feature.name === featureName);
+        return featureIndex;
+    }
+
     putFeaturesInOrder() {
         this.features = this.features.sort((featureA, featureB) => {
             let featureAIndex = CONFIG.FEATURE_ORDER.findIndex(element => element === featureA.name);
@@ -34,8 +39,8 @@ export default class Smiley {
         this.keepAllowedFeatures();
         this.putFeaturesInOrder();
         return this.features.reduce((smiley, feature) => {
-            let charsAllowed = feature.characterOptions.filter(characterOption => characterOption.allowed)
-            let randomCharForFeature = charsAllowed[Math.floor(Math.random() * charsAllowed.length)].character;  
+            let charsAllowed = feature.characters.filter(character => character.allowed)
+            let randomCharForFeature = charsAllowed[Math.floor(Math.random() * charsAllowed.length)].name;  
             return smiley += randomCharForFeature;
         }, '');
     }

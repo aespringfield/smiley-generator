@@ -5,11 +5,11 @@ describe('Feature class', () => {
         const feature = new Feature('eyes', true, true,
             [
                 {
-                    character: ':', 
+                    name: ':', 
                     allowed: true
                 },
                 {
-                    character: ';', 
+                    name: ';', 
                     allowed: false
                 }
             ]
@@ -18,13 +18,13 @@ describe('Feature class', () => {
             name: 'eyes',
             allowed: true,
             required: true,
-            characterOptions: [
+            characters: [
                 {
-                    character: ':', 
+                    name: ':', 
                     allowed: true
                 },
                 {
-                    character: ';', 
+                    name: ';', 
                     allowed: false
                 }
             ]
