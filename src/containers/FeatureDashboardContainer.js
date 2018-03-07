@@ -4,9 +4,6 @@ import FeatureConfigOptions from './../components/FeatureConfigOptions';
 // import CONFIG from '../config/smileyConfig';
 
 export default class FeatureDashboardContainer extends Component {
-    constructor(props) {
-        super(props) //is super & passing in props to constructor necessary?
-    }
 
     // updateFeature = (featureIndex, callback) => {
     //     const updatedFeatures = this.props.features[featureIndex].callback();
@@ -27,10 +24,10 @@ export default class FeatureDashboardContainer extends Component {
         console.log('Feature index', featureIndex)
         return (callback) => {
             return (characterIndex) => {
-                console.log('characterIndex', this.characterIndex);
+                console.log('characterIndex', characterIndex);
                 return () => {
-                    const updatedFeatures = this.props.features[featureIndex][callback].call(characterIndex);
-                    this.props.updateFeatures(updatedFeatures);
+                    this.props.features[featureIndex][callback].call(this, characterIndex);
+                    this.props.updateFeatures(this.props.features);
                 }
             }
         }
@@ -39,14 +36,15 @@ export default class FeatureDashboardContainer extends Component {
     updateConfig = (featureIndex) => {
         return (callback) => {
             return () => {
-                const updatedFeatures = this.props.features[featureIndex][callback].call();
-                this.props.updateFeatures(updatedFeatures);
+                this.props.features[featureIndex][callback].call(this);
+                this.props.updateFeatures(this.props.features);
             }
         }
     }
 
 
     render() {
+        console.log('Props in featuredash', this.props)
         return (
             <div className="feature-dashboard">
                 <h1>Generate a smiley!</h1>

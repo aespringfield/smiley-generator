@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SmileyCreator from '../models/SmileyCreator';
 import CONFIG from '../config/smileyConfig';
 import FeatureDashboardContainer from './FeatureDashboardContainer';
-import ConfigButton from '../components/ConfigButton';
+import GenerateButton from '../components/ConfigButton';
 import SmileyViewer from '../components/SmileyViewer';
 
 export default class SmileyCreatorContainer extends Component {
@@ -26,17 +26,22 @@ export default class SmileyCreatorContainer extends Component {
                     logStuff={this.logStuff}
                     updateFeatures={this.updateFeatures}
                 />
-                <ConfigButton text="Generate New Smiley"/>
-                <SmileyViewer />
+                <GenerateButton 
+                    text="Generate A New Smiley"
+                    createSmiley={this.createSmiley}
+                />
+                <SmileyViewer 
+                />
             </div>
         );
     }
 
-    // createSmiley() {
-    //     this.setState({
-    //         smiley: this.smileyCreator.createSmiley()
-    //     })
-    // }
+    createSmiley = () => {
+        this.setState({
+            smiley: this.smileyCreator.createSmiley()
+        })
+        console.log('New state', this.state)
+    }
 
     // toggleCharacterAllowed = (featureIndex, characterIndex) => {
     //     // const character = this.smileyCreator[featureIndex][characterIndex];
@@ -45,10 +50,11 @@ export default class SmileyCreatorContainer extends Component {
     //     })
     // }
 
-    updateFeatures(updatedFeatures) {
+    updateFeatures = (updatedFeatures) => {
         this.setState({
             features: updatedFeatures
         })
+        console.log('NEW STATE', this.state);
     }
     
 
