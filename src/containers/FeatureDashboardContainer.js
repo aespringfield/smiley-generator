@@ -21,10 +21,8 @@ export default class FeatureDashboardContainer extends Component {
     // }
 
     updateCharacter = (featureIndex) => {
-        console.log('Feature index', featureIndex)
         return (callback) => {
             return (characterIndex) => {
-                console.log('characterIndex', characterIndex);
                 return () => {
                     this.props.features[featureIndex][callback].call(this, characterIndex);
                     this.props.updateFeatures(this.props.features);

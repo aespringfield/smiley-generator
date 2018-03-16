@@ -16,4 +16,12 @@ export default class Feature extends Character {
         return this;
     }
 
+    toggleRequired = () => {
+        this.required = !this.required;
+    }
+
+    toggleAllowed = () => {
+        this.allowed = !this.allowed;
+    }
+
 }

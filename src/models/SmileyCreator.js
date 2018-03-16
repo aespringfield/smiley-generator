@@ -38,10 +38,12 @@ export default class SmileyCreator {
     createSmiley() {
         this.keepAllowedFeatures();
         this.putFeaturesInOrder();
-        return this.features.reduce((smiley, feature) => {
+        const smiley = this.features.reduce((smiley, feature) => {
             let charsAllowed = feature.characters.filter(character => character.allowed)
             let randomCharForFeature = charsAllowed[Math.floor(Math.random() * charsAllowed.length)].name;  
             return smiley += randomCharForFeature;
         }, '');
+        console.log('smiley', smiley);
+        return smiley;
     }
 }

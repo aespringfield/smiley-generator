@@ -4,6 +4,8 @@ import ConfigButton from './ConfigButton';
 
 const FeatureConfigOptions = props => {
     const toggleCharacterAllowed = props.updateCharacter('toggleCharacterAllowed');
+    // const toggleRequired = props.updateConfig();
+    const toggleAllowed = props.updateConfig('toggleAllowed');
 
     return (
         <div className="feature-config-options">
@@ -11,8 +13,11 @@ const FeatureConfigOptions = props => {
                 <h2 className="feature-config-options-header">
                     {props.feature.name}
                 </h2>
-                <ConfigButton text='Allow'/>
-                <ConfigButton text='Require'/>
+                <ConfigButton text='Allow'
+                    toggleAllowed={toggleAllowed}
+                />
+                <ConfigButton text='Require'
+                />
                 <FeatureCharacterOptions 
                     characters={props.feature.characters}
                     toggleCharacterAllowed={toggleCharacterAllowed}
