@@ -47,7 +47,8 @@ button:hover:before, button:hover:after {
 }
 
 .feature-config-options {
-  margin: 0px;
+  margin: 40px 25px;
+  float: left;
 }
 
 .config-button {
@@ -56,6 +57,8 @@ button:hover:before, button:hover:after {
   background-color: cornflowerblue;
   font-size: .9em;
   padding: 12px;
+  /* display: inline-block;
+  margin: 0 auto; */
 }
 
 .config-button:active {
@@ -71,7 +74,51 @@ button:hover:before, button:hover:after {
   margin: 5px 2px;
 }
 
+.config-buttons-container {
+  display: block;
+  margin: 0 auto;
+}
+
 .selected {
   background-color: paleturquoise;
 }
 
+.smiley-viewer {
+  font-size: 150px;
+  text-align: center;
+}
+
+/* .generate-button-container {
+  display: block;
+  margin: 0 auto;
+} */
+
+.generate-button {
+  display: block;
+  margin: 0 auto;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  background-color: cornflowerblue;
+  font-size: 1.5em;
+  padding: 25px;
+  /* display: inline-block;
+  margin: 0 auto; */
+}
+
+.generate-button:active {
+  background-color: rgb(40, 109, 238);
+}
+
+.smiley-viewer-container {
+  display: block;
+  margin: 60px 60px;
+}
+
+.main-heading {
+  /* color: rgb(40, 109, 238); */
+}
+
+.feature-dashboard {
+  display: block;
+  margin: 0 auto;
+}

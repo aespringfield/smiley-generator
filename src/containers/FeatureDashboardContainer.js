@@ -45,7 +45,6 @@ export default class FeatureDashboardContainer extends Component {
         console.log('Props in featuredash', this.props)
         return (
             <div className="feature-dashboard">
-                <h1>Generate a smiley!</h1>
                 {this.props.features.map((feature, index) => 
                     <FeatureConfigOptions 
                         key={index} 

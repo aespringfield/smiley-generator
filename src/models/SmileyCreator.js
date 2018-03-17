@@ -19,7 +19,7 @@ export default class SmileyCreator {
     }
 
     keepAllowedFeatures() {
-        this.features = this.features.filter(feature => feature.allowed);
+        return this.features.filter(feature => feature.allowed);
     }
 
     findFeatureIndex(featureName) {
@@ -28,22 +28,17 @@ export default class SmileyCreator {
     }
 
     putFeaturesInOrder() {
-        this.features = this.features.sort((featureA, featureB) => {
+        return this.features.sort((featureA, featureB) => {
             let featureAIndex = CONFIG.FEATURE_ORDER.findIndex(element => element === featureA.name);
             let featureBIndex = CONFIG.FEATURE_ORDER.findIndex(element => element === featureB.name);
             return featureAIndex - featureBIndex;
-        })
+        });
     }
     
     createSmiley() {
-        this.keepAllowedFeatures();
-        this.putFeaturesInOrder();
-        const smiley = this.features.reduce((smiley, feature) => {
-            let charsAllowed = feature.characters.filter(character => character.allowed)
-            let randomCharForFeature = charsAllowed[Math.floor(Math.random() * charsAllowed.length)].name;  
-            return smiley += randomCharForFeature;
-        }, '');
-        console.log('smiley', smiley);
-        return smiley;
+        return this.putFeaturesInOrder().reduce((smiley, feature) => {
+            if (!feature.allowed) { return smiley }      
+            return smiley += feature.pickCharacter();
+        }, '')
     }
 }

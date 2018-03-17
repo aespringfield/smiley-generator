@@ -7,9 +7,9 @@ const GenerateButton = props => {
     props.createSmiley();
   }
   return (
-    <div className="button-container">
+    <div className="generate-button-container">
       <button 
-          className="config-button"
+          className="generate-button"
           onClick={(event) => handleClick(event)}
       >
           {props.text}

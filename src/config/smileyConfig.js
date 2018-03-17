@@ -70,7 +70,7 @@ const CONFIG = {
                 },
                 {
                     name: '|',
-                    allowed: true
+                    allowed: false
                 }
             ]
         },

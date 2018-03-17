@@ -15,6 +15,18 @@ export default class SmileyCreatorContainer extends Component {
         }
     }
 
+    createSmiley = () => {
+        console.log('createSmiley', this.smileyCreator.createSmiley)
+        this.setState({
+            smiley: this.smileyCreator.createSmiley()
+        })
+        console.log('New state', this.state)
+    }
+
+    componentWillMount() {
+        this.createSmiley();
+    }
+
     componentDidMount() {
         console.log('STATE', this.state)
     }
@@ -22,29 +34,22 @@ export default class SmileyCreatorContainer extends Component {
     render() {
         return (
             <div>
+                <h1 className="main-heading">Generate a smiley!</h1>
+                <SmileyViewer
+                    smiley={this.state.smiley}
+                />
+                <GenerateButton 
+                    text="Generate New Smiley"
+                    createSmiley={this.createSmiley}
+                />
                 <FeatureDashboardContainer 
                     features={this.state.features}
                     toggleCharacterAllowed={this.toggleCharacterAllowed}
                     logStuff={this.logStuff}
                     updateFeatures={this.updateFeatures}
                 />
-                <GenerateButton 
-                    text="Generate A New Smiley"
-                    createSmiley={this.createSmiley}
-                />
-                <SmileyViewer
-                    smiley={this.state.smiley}
-                />
             </div>
         );
-    }
-
-    createSmiley = () => {
-        console.log('createSmiley', this.smileyCreator.createSmiley)
-        this.setState({
-            smiley: this.smileyCreator.createSmiley()
-        })
-        console.log('New state', this.state)
     }
 
     // toggleCharacterAllowed = (featureIndex, characterIndex) => {
