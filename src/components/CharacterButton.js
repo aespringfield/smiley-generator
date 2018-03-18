@@ -7,7 +7,6 @@ const CharacterButton = props => {
         'character-button',
         {'selected': character.allowed}
     )
-    console.log(buttonClasses);
 
     const handleClick = (event) => {
         props.toggleAllowed();
