@@ -37,7 +37,7 @@ export default class SmileyCreator {
     
     createSmiley() {
         return this.putFeaturesInOrder().reduce((smiley, feature) => {
-            if (!feature.allowed) { return smiley }      
+            if (!feature.allowed || !feature.decideWhetherToUse()) { return smiley }
             return smiley += feature.pickCharacter();
         }, '')
     }
