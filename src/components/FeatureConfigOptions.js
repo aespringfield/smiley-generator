@@ -3,6 +3,7 @@ import FeatureCharacterOptions from './FeatureCharacterOptions';
 import ConfigButton from './ConfigButton';
 import { capitalize } from './lib/TextHelper';
 import FeatureProbabilityInput from './FeatureProbabilityInput';
+import FeatureFormContainer from '../containers/FeatureFormContainer';
 
 const FeatureConfigOptions = props => {
     const toggleCharacterAllowed = props.updateCharacter('toggleCharacterAllowed');
@@ -43,9 +44,9 @@ const FeatureConfigOptions = props => {
                     characters={props.feature.characters}
                     toggleCharacterAllowed={toggleCharacterAllowed}
                 />
-                <FeatureProbabilityInput
-                    setProbability = {setProbability}
-                    probability = {props.feature.probability}
+                <FeatureFormContainer
+                    setProbability={setProbability}
+                    feature={props.feature}
                 />
             </div>
         </div>

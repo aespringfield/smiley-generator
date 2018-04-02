@@ -2,7 +2,8 @@ import React from 'react';
 
 const FeatureProbabilityInput = props => {
   const handleChange = event => {
-    props.setProbability(event.target.value);
+    const input = event.target.value;
+    props.updateProbability(input)
   }
 
   return (

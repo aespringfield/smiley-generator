@@ -6,6 +6,7 @@ export default class Feature extends Character {
         this.required = required;
         this.probability = this.required ? 1 : 0.5;
         this.characters = characters.map(character => new Character(character.name, character.allowed));
+        console.log('feature constructed')
     }
 
     findCharacterIndex(characterName) {
@@ -13,7 +14,10 @@ export default class Feature extends Character {
     }
 
     setProbability(probability) {
-        this.probability = probability;
+        console.log('in setProbability trying to set probability for', this.name, 'to', probability)
+        if (probability >= 0 && probability <= 1) {
+            this.probability = probability;
+        }
 
         this.required = this.probability < 1 ? true : false;
     }
@@ -25,7 +29,9 @@ export default class Feature extends Character {
 
     toggleRequired = () => {
         this.required = !this.required;
-        this.required ? this.propability = 1 : this.probability = 0.5
+        if (this.required) {
+            this.probability = 1
+        }
     }
 
     toggleAllowed = () => {

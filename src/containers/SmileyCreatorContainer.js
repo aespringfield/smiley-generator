@@ -52,13 +52,6 @@ export default class SmileyCreatorContainer extends Component {
         );
     }
 
-    // toggleCharacterAllowed = (featureIndex, characterIndex) => {
-    //     // const character = this.smileyCreator[featureIndex][characterIndex];
-    //     this.setState((prevState, props) => {
-    //         return {smileyCreator: prevState.smileyCreator[featureIndex][characterIndex].toggleAllowed()}
-    //     })
-    // }
-
     updateFeatures = (updatedFeatures) => {
         this.setState({
             features: updatedFeatures
@@ -66,6 +59,30 @@ export default class SmileyCreatorContainer extends Component {
         console.log('NEW STATE', this.state);
     }
     
+    // updateCharacter = (featureIndex) => {
+    //     const features = this.state.features;
+    //     return (callback) => {
+    //         return (characterIndex) => {
+    //             return () => {
+    //                 console.log('in', callback, 'trying to update', features[featureIndex].name, '\n this is', this)
+    //                 features[featureIndex][callback].call(features[featureIndex], characterIndex);
+    //                 updateFeatures(features);
+    //             }
+    //         }
+    //     }
+    // }
+
+    // updateConfig = (featureIndex) => {
+    //     const features = this.state.features;
+    //     return (callback) => {
+    //         return (value) => {
+    //             console.log('in', callback, 'trying to update', features[featureIndex].name, '\n this is', features[featureIndex])
+    //             features[featureIndex][callback].call(features[featureIndex], value);
+    //             updateFeatures(features);
+    //         }
+    //     }
+    // }
+ 
 
     logStuff = (event) => {
         console.log('EVENT:', event);
