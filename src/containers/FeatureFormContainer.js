@@ -18,18 +18,22 @@ export default class FeatureFormContainer extends Component {
   
   updateProbability = (input) => {
     this.updateFormState({probability: input})
-    const floatMatcher = /^(\d*\.?)?\d+$/;
-    if (!input.match(floatMatcher)) { return }
+    if (!input.match(/^(\d*\.?)?\d+$/)) { return } // return if not string matching floating point
     const probability = parseFloat(input);
     if (probability >= 0 && probability <= 1)  {
       this.props.setProbability(probability);
     }
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    console.log("updating form w props", nextProps)
+    this.updateFormState(...nextProps.feature)
+  }
+
   render() {
     return (
       <FeatureProbabilityInput
-        probability={this.props.probability}
+        probability={this.state.probability}
         updateProbability={this.updateProbability}
       />
     )
