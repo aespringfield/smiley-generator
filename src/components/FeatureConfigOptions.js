@@ -12,15 +12,13 @@ const FeatureConfigOptions = props => {
     const requireButtonOpts = {
         text: 'Require',
         class: 'require-button',
-        selectBy: 'required',
-        feature: props.feature,
+        selected: props.feature['required'],
         handleClick: props.updateConfig('toggleRequired')
     }
     const allowButtonOpts = {
         text: 'Allow',
         class: 'allow-button',
-        selectBy: 'allowed',
-        feature: props.feature,
+        selected: props.feature['allowed'],
         handleClick: props.updateConfig('toggleAllowed')
     }
 
@@ -34,10 +32,10 @@ const FeatureConfigOptions = props => {
                 </h2>
                 <div className="config-buttons-container">
                     <ConfigButton 
-                        buttonOpts={allowButtonOpts}
+                        {...allowButtonOpts}
                     />
                     <ConfigButton 
-                        buttonOpts={requireButtonOpts}
+                        {...requireButtonOpts}
                     />
                 </div>
                 <FeatureCharacterOptions 

@@ -5,17 +5,17 @@ import classNames from 'classnames';
 const ConfigButton = props => {
     const buttonClasses = classNames(
         'character-button',
-        props.buttonOpts.class,
-        {'selected': props.buttonOpts.feature[props.buttonOpts.selectBy]}
+        props.class,
+        {'selected': props.selected}
     )
 
     return (
         <div className="button-container">
             <button 
                 className={buttonClasses}
-                onClick={(event) => props.buttonOpts.handleClick(event)}
+                onClick={(event) => props.handleClick(event)}
             >
-                {props.buttonOpts.text}
+                {props.text}
             </button>
         </div>
     )
