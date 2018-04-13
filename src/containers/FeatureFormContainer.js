@@ -10,6 +10,11 @@ export default class FeatureFormContainer extends Component {
     console.log('form state:', this.state)
   }
 
+  handleChange = event => {
+    const input = event.target.value;
+    this.props.setProbability(input)
+  }
+
   updateFormState = (opts) => {
     this.setState({
       ...opts
@@ -32,9 +37,10 @@ export default class FeatureFormContainer extends Component {
 
   render() {
     return (
-      <FeatureProbabilityInput
-        probability={this.state.probability}
-        updateProbability={this.updateProbability}
+      <input 
+        type="text"
+        value={this.props.probability}
+        onChange={(event) => this.handleChange(event)}
       />
     )
   }
