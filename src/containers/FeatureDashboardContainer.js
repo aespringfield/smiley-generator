@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FeatureConfigOptions from '../components/FeatureConfigOptions';
 
 export default class FeatureDashboardContainer extends Component {
+
     updateCharacter = (featureIndex) => {
         return (callback) => {
             return (characterIndex) => {
@@ -48,7 +49,7 @@ export default class FeatureDashboardContainer extends Component {
     render() {
         return(
             <div className="feature-dashboard">
-                {this.props.features.map((feature, index) => 
+                {this.props.features.map((feature, index) =>
                     <FeatureConfigOptions 
                         key={index} 
                         feature={feature}

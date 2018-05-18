@@ -6,6 +6,7 @@ import FeatureProbabilityInput from './FeatureProbabilityInput';
 import FeatureFormContainer from '../containers/FeatureFormContainer';
 
 const FeatureConfigOptions = props => {
+    console.log('feature', props.feature)
     const toggleCharacterAllowed = props.updateCharacter('toggleCharacterAllowed');
     // const toggleRequired = props.updateConfig();
     // const toggleAllowed = props.updateConfig('toggleAllowed');
