@@ -16,11 +16,9 @@ export default class SmileyCreatorContainer extends Component {
     }
 
     createSmiley = () => {
-        console.log('createSmiley', this.smileyCreator.createSmiley)
         this.setState({
             smiley: this.smileyCreator.createSmiley()
         })
-        console.log('New state', this.state)
     }
 
     componentWillMount() {

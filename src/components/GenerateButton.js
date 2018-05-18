@@ -5,6 +5,7 @@ const GenerateButton = props => {
   const handleClick = (event) => {
     props.createSmiley();
   }
+  
   return (
     <div className="generate-button-container">
       <button 
