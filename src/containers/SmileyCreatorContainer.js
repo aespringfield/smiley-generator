@@ -11,7 +11,7 @@ export default class SmileyCreatorContainer extends Component {
         this.smileyCreator = new SmileyCreator(CONFIG.DEFAULT_FEATURES)
         this.state = {
             smiley: '',
-            ...this.smileyCreator
+            features: this.smileyCreator.features
         }
     }
 
@@ -42,7 +42,6 @@ export default class SmileyCreatorContainer extends Component {
                 />
                 <FeatureDashboardContainer 
                     features={this.state.features}
-                    toggleCharacterAllowed={this.toggleCharacterAllowed}
                     logStuff={this.logStuff}
                     updateFeatures={this.updateFeatures}
                 />

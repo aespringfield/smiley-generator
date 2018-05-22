@@ -9,11 +9,15 @@ const ConfigButton = props => {
         {'selected': props.selected}
     )
 
+    const handleClick = (event) => {
+        props.targleConfig(props.feature)
+    }
+
     return (
         <div className="button-container">
             <button 
                 className={buttonClasses}
-                onClick={(event) => props.handleClick(event)}
+                onClick={handleClick}
             >
                 {props.text}
             </button>

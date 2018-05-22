@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import FeatureConfigOptions from '../components/FeatureConfigOptions';
 
+export const FeaturesContext = React.createContext({
+    features: [],
+    updateFeatures: () => {}
+});
+
 export default class FeatureDashboardContainer extends Component {
+    constructor(props) {
+        super(props)
+        this.featuresContext = {
+            features: props.features,
+            updateFeatures: props.updateFeatures
+        }
+    }
 
     updateCharacter = (featureIndex) => {
         return (callback) => {
             return (characterIndex) => {
                 return () => {
-                    console.log('in', callback, 'trying to update', this.props.features[featureIndex].name, '\n this is', this)
                     this.props.features[featureIndex][callback].call(this.props.features[featureIndex], characterIndex);
                     this.props.updateFeatures(this.props.features);
                 }
@@ -18,7 +29,6 @@ export default class FeatureDashboardContainer extends Component {
     updateConfig = (featureIndex) => {
         return (callback) => {
             return (value) => {
-                console.log('in', callback, 'trying to update', this.props.features[featureIndex].name, '\n this is', this.props.features[featureIndex])
                 this.props.features[featureIndex][callback].call(this.props.features[featureIndex], value);
                 this.props.updateFeatures(this.props.features);
             }
@@ -49,16 +59,22 @@ export default class FeatureDashboardContainer extends Component {
     render() {
         return(
             <div className="feature-dashboard">
-                {this.props.features.map((feature, index) =>
-                    <FeatureConfigOptions 
-                        key={index} 
-                        feature={feature}
-                        // toggleCharacterAllowed={this.props.toggleCharacterAllowed}
-                        // logStuff={this.props.logStuff}
-                        updateConfig={this.updateConfig(index)}
-                        updateCharacter={this.updateCharacter(index)}
-                    />
-                )}
+                {console.log('feature dashboard props', this.props)}
+                <FeaturesContext.Provider value={this.featuresContext}>
+                    {this.props.features.map((feature, index) =>
+                        <FeatureConfigOptions 
+                            key={feature.shortid} 
+                            feature={feature}
+                            features={this.props.features}
+                            featureIndex={index}
+                            // toggleCharacterAllowed={this.props.toggleCharacterAllowed}
+                            // logStuff={this.props.logStuff}
+                            updateConfig={this.updateConfig(index)}
+                            updateCharacter={this.updateCharacter(index)}
+                            updateFeatures={this.props.updateFeatures}
+                        />
+                    )}
+                </FeaturesContext.Provider>
             </div>
         );
     }

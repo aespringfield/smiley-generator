@@ -1,4 +1,5 @@
 import Character from './Character';
+import shortid from 'shortid';
 
 export default class Feature extends Character {
     constructor({name, allowed, required, characters}) {
@@ -6,7 +7,7 @@ export default class Feature extends Character {
         this.required = required;
         this.probability = this.required ? 1 : 0.5;
         this.characters = characters.map(character => new Character(character.name, character.allowed));
-        console.log('feature constructed`')
+        this.shortid = shortid.generate();
     }
 
     findCharacterIndex(characterName) {
