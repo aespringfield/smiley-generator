@@ -4,24 +4,30 @@ import ConfigButton from './ConfigButton';
 import { capitalize } from './lib/TextHelper';
 import FeatureProbabilityInput from './FeatureProbabilityInput';
 import FeatureFormContainer from '../containers/FeatureFormContainer';
-// import { FeaturesContext } from '../containers/FeatureDashboardContainer';
 
 const FeatureConfigOptions = props => {
-    console.log('feature', props.feature)
-    const toggleCharacterAllowed = props.updateCharacter('toggleCharacterAllowed');
-    // const toggleRequired = props.updateConfig();
-    // const toggleAllowed = props.updateConfig('toggleAllowed');
-
-    const targleConfig = ((features, updater) => {
-        return (action) => {
-            return (feature) => {
-                feature[action].call();
-                updater(features);
-            }
+    const callFeatureAction = (action) => {
+        return () => {
+            props.feature[action].call(props.feature);
+            props.updateFeature(props.featureIndex, props.feature);
         }
-    })(props.features, props.updateFeatures)
-    
-    const setProbability = props.updateConfig('setProbability');
+    }
+
+    const callCharacterAction = (action) => {
+        return (characterIndex) => {
+            props.feature[action].call(props.feature, characterIndex);
+            props.updateFeature(props.featureIndex, props.feature);
+        }
+    }
+
+    const toggleRequired = callFeatureAction('toggleRequired');
+    const toggleAllowed = callFeatureAction('toggleAllowed');
+    const toggleCharacterAllowed = callCharacterAction('toggleCharacterAllowed');
+
+    const setProbability = (probability) => {
+        props.feature.setProbability(probability);
+        props.updateFeature(props.featureIndex, props.feature);
+    }
 
     return (
         <div className="feature-config-options">
@@ -34,25 +40,25 @@ const FeatureConfigOptions = props => {
                         text='Require'
                         class='require-button'
                         selected={props.feature.required}
-                        feature={props.feature}
-                        targleConfig={targleConfig('toggleRequired')}
+                        toggleConfig={toggleRequired}
                     />
                     <ConfigButton
                         text='Allow'
                         class='allow-button'
                         selected={props.feature.allowed}
-                        feature={props.feature}
-                        targleConfig={targleConfig('toggleAllowed')}
+                        toggleConfig={toggleAllowed}
                     />
                 </div>
                 <FeatureCharacterOptions 
                     characters={props.feature.characters}
                     toggleCharacterAllowed={toggleCharacterAllowed}
                     featureIndex={props.featureIndex}
+                    updateFeature={props.updateFeature}
                 />
                 <FeatureFormContainer
                     setProbability={setProbability}
                     feature={props.feature}
+                    updateFeature={props.updateFeature}
                 />
             </div>
         </div>

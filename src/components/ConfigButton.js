@@ -10,7 +10,7 @@ const ConfigButton = props => {
     )
 
     const handleClick = (event) => {
-        props.targleConfig(props.feature)
+        props.toggleConfig();
     }
 
     return (

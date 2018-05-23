@@ -15,18 +15,26 @@ export default class SmileyCreatorContainer extends Component {
         }
     }
 
-    createSmiley = () => {
-        this.setState({
-            smiley: this.smileyCreator.createSmiley()
-        })
-    }
-
     componentWillMount() {
         this.createSmiley();
     }
 
     componentDidMount() {
         console.log('STATE', this.state)
+    }
+
+    createSmiley = () => {
+        this.setState({
+            smiley: this.smileyCreator.createSmiley()
+        })
+    }
+
+    updateFeature = (featureIndex, updatedFeature) => {
+        const updatedFeatures = this.state.features
+        updatedFeatures[featureIndex] = updatedFeature;
+        this.setState({
+            features: updatedFeatures
+        });
     }
 
     render() {
@@ -42,54 +50,9 @@ export default class SmileyCreatorContainer extends Component {
                 />
                 <FeatureDashboardContainer 
                     features={this.state.features}
-                    logStuff={this.logStuff}
-                    updateFeatures={this.updateFeatures}
+                    updateFeature={this.updateFeature}
                 />
             </div>
         );
     }
-
-    updateFeatures = (updatedFeatures) => {
-        this.setState({
-            features: updatedFeatures
-        })
-        console.log('NEW STATE', this.state);
-    }
-    
-    // updateCharacter = (featureIndex) => {
-    //     const features = this.state.features;
-    //     return (callback) => {
-    //         return (characterIndex) => {
-    //             return () => {
-    //                 console.log('in', callback, 'trying to update', features[featureIndex].name, '\n this is', this)
-    //                 features[featureIndex][callback].call(features[featureIndex], characterIndex);
-    //                 updateFeatures(features);
-    //             }
-    //         }
-    //     }
-    // }
-
-    // updateConfig = (featureIndex) => {
-    //     const features = this.state.features;
-    //     return (callback) => {
-    //         return (value) => {
-    //             console.log('in', callback, 'trying to update', features[featureIndex].name, '\n this is', features[featureIndex])
-    //             features[featureIndex][callback].call(features[featureIndex], value);
-    //             updateFeatures(features);
-    //         }
-    //     }
-    // }
- 
-
-    logStuff = (event) => {
-        console.log('EVENT:', event);
-        console.log('TARGET:', event.target);
-        console.log('PROPS:', event.target.props);
-    }
-
-    // setFeatures(features) {
-    //     this.setState(() => {
-    //         this.smileyCreator.setFeatures(features);
-    //     })
-    // }
 }
