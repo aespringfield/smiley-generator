@@ -12,11 +12,11 @@ const CharacterButton = props => {
         props.toggleAllowed();
     }
 
-    return(
+    return (
         <div className="button-container">
             <button 
                 className={buttonClasses}
-                onClick={(event) => handleClick(event)}
+                onClick={handleClick}
             >
                 {character.name}
             </button>

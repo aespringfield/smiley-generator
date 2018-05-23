@@ -1,61 +1,19 @@
 import React, { Component } from 'react';
-import FeatureConfigOptions from './../components/FeatureConfigOptions';
-// import FeatureDashboard from '../models/FeatureDashboard';
-// import CONFIG from '../config/smileyConfig';
+import FeatureConfigOptions from '../components/FeatureConfigOptions';
 
-export default class FeatureDashboardContainer extends Component {
-
-    // updateFeature = (featureIndex, callback) => {
-    //     const updatedFeatures = this.props.features[featureIndex].callback();
-    //     this.props.updateFeatures(updatedFeatures);
-    // }
-
-    // updateAllowedCharacters(featureIndex) {
-    //     return (characterIndex) => {
-    //         updateFeature(featureIndex, toggleCharacterAllowed);
-    //     }
-    // }
-
-    // updateCharacter() {
-
-    // }
-
-    updateCharacter = (featureIndex) => {
-        return (callback) => {
-            return (characterIndex) => {
-                return () => {
-                    this.props.features[featureIndex][callback].call(this, characterIndex);
-                    this.props.updateFeatures(this.props.features);
-                }
-            }
-        }
-    }
-
-    updateConfig = (featureIndex) => {
-        return (callback) => {
-            return () => {
-                this.props.features[featureIndex][callback].call(this);
-                this.props.updateFeatures(this.props.features);
-            }
-        }
-    }
-
-
-    render() {
-        console.log('Props in featuredash', this.props)
-        return (
-            <div className="feature-dashboard">
-                {this.props.features.map((feature, index) => 
-                    <FeatureConfigOptions 
-                        key={index} 
-                        feature={feature}
-                        // toggleCharacterAllowed={this.props.toggleCharacterAllowed}
-                        // logStuff={this.props.logStuff}
-                        updateConfig={this.updateConfig(index)}
-                        updateCharacter={this.updateCharacter(index)}
-                    />
-                )}
-            </div>
-        );
-    }
+const FeatureDashboardContainer = (props) => {
+    return (
+        <div className="feature-dashboard">
+            {props.features.map((feature, index) =>
+                <FeatureConfigOptions 
+                    key={feature.shortid} 
+                    feature={feature}
+                    featureIndex={index}
+                    updateFeature={props.updateFeature}
+                />
+            )}
+        </div>
+    );
 }
+
+export default FeatureDashboardContainer;
