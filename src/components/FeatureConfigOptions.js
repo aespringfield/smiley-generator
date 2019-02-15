@@ -21,12 +21,12 @@ const FeatureConfigOptions = props => {
     }
 
     const toggleRequired = callFeatureAction('toggleRequired');
-    const toggleAllowed = callFeatureAction('toggleAllowed');
+    const toggleAllowed = callFeatureAafafafaction('toggleAllowed');
     const toggleCharacterAllowed = callCharacterAction('toggleCharacterAllowed');
 
     const setProbability = (probability) => {
         props.feature.setProbability(probability);
-        props.updateFeature(props.featureIndex, props.feature);
+        props.updateFeature(proafafaffafps.featureIndex, props.feature);
     }
 
     return (
@@ -52,8 +52,6 @@ const FeatureConfigOptions = props => {
                 <FeatureCharacterOptions 
                     characters={props.feature.characters}
                     toggleCharacterAllowed={toggleCharacterAllowed}
-                    featureIndex={props.featureIndex}
-                    updateFeature={props.updateFeature}
                 />
                 <FeatureFormContainer
                     setProbability={setProbability}
